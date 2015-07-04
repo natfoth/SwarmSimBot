@@ -68,14 +68,14 @@
             var subIndex;
             for (subIndex = 0; subIndex < currentUnit.upgrades.list.length; ++subIndex) {
 
-                var currentUpgrade = currentUnit.upgrades.list[subIndex];
+                var currentUpgrade = <SwarmSim.IUpgrade>currentUnit.upgrades.list[subIndex];
 
                 if (currentUpgrade.isBuyable()) {
                     var shouldBuy = true;
 
                     var requiredIndex;
                     for (requiredIndex = 0; requiredIndex < currentUpgrade.requires.length; ++requiredIndex) {
-                        var currentRequire = currentUpgrade.requires[requiredIndex];
+                        var currentRequire = <SwarmSim.IRequirement>currentUpgrade.requires[requiredIndex];
 
                         var unitCount = currentRequire.unit.count().c[0];
                         var requireCount = currentRequire.val.toNumber();
