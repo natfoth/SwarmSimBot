@@ -1,5 +1,3 @@
-var bot = new SwarmBot(angular.element(document.getElementsByTagName("body")[0]).scope()["game"]);
-bot.start(1000);
 var SwarmBot = (function () {
     function SwarmBot(game) {
         this.listOfPurchasableUnints = [];
@@ -145,4 +143,6 @@ var SwarmBot = (function () {
     };
     return SwarmBot;
 })();
+var bot = new SwarmBot(angular.element(document.getElementsByTagName("body")[0]).scope()["game"]);
+bot.start(1000);
 //# sourceMappingURL=bot.js.map

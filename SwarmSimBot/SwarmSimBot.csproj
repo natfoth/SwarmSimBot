@@ -46,7 +46,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="SwarmBot.ts" />
+    <TypeScriptCompile Include="_SwarmBot.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
