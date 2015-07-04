@@ -52,7 +52,7 @@ declare module SwarmSim {
         isBuyable: (count?: number) => boolean;
         buyMax: (a) => any;
         twinMult: () => any;
-        buy: (a) => any;
+        buy: (count?: number) => any;
         isNewlyUpgradable: () => boolean;
         totalProduction: () => any;
         eachProduction: () => any;

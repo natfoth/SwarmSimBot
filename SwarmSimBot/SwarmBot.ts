@@ -151,7 +151,7 @@
     }
 
     private listOfPurchasableUnints = [];
-    private findBestUnitToBuy() {
+    private findBestUnitToBuy(): SwarmSim.IUnit {
         if (this.listOfPurchasableUnints.length == 1) {
             return this.listOfPurchasableUnints[0];
         }
