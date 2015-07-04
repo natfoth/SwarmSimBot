@@ -120,7 +120,8 @@ function setupListOfPurchasableUnits()
 
 
             var currency = currentCost.unit;
-            var currencyCount = currency.count().c[0];
+            var currencyCount = countOfUnit(currency);
+            
             //console.log("We have : " + currencyCount + " - of " + currency.name);
 
             if(currencyCount < currentCost.val.toNumber())
@@ -173,7 +174,7 @@ function findBestUnitToBuy()
 
 
                 var currencyUnity = currentCost.unit;
-                var currencyUnityCount = currencyUnity.count().c[0];
+                var currencyUnityCount = countOfUnit(currencyUnity);
 
                 if(costMuliplied > currencyUnityCount)
                 {
@@ -194,6 +195,17 @@ function buyOneUnit(unitToBuy)
 {
     unitToBuy.buy(1);
     console.log("Purchasing : 1 - " + unitToBuy.name);
+}
+
+function countOfUnit(unit)
+{
+    var currencyCount = unit.count().c[0];
+    if(unit.count().c.length == 3)
+    {
+        currencyCount = Number(unit.count().c[0].toString() + unit.count().c[1].toString());
+    }
+
+    return currencyCount
 }
 
 mainLoop();
