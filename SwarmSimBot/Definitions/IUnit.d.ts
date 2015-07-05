@@ -64,5 +64,6 @@ declare module SwarmSim {
         stats: () => any;
         statistics: () => any;
         url: () => any;
+        next: IUnit;
     }
 }
