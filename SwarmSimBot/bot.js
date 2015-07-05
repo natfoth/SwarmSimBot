@@ -11,8 +11,9 @@ var SwarmBot = (function () {
         this.militaryPrct = 15;
     }
     SwarmBot.prototype.start = function (interval) {
+        var _this = this;
         this.mainLoop();
-        this.timer = setInterval(this.mainLoop, interval);
+        this.timer = setInterval(function () { return _this.mainLoop(); }, interval);
     };
     SwarmBot.prototype.stop = function () {
         if (this.timer == null)

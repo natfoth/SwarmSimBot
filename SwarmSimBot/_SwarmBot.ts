@@ -25,7 +25,7 @@
     start(interval: number) {
         this.mainLoop();
 
-        this.timer = setInterval(this.mainLoop, interval);
+        this.timer = setInterval(() => this.mainLoop(), interval);
     }
 
     stop() {
