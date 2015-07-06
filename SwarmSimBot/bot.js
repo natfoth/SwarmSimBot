@@ -118,6 +118,7 @@ var SwarmBot = (function () {
         this.unitsToParse.reverse();
     };
     SwarmBot.prototype.setupMilitaryUnitList = function () {
+        this.militaryUnitsToParse = [];
         var index;
         for (index = 0; index < this.game.unitlist().length; ++index) {
             var currentUnit = this.game.unitlist()[index];
@@ -270,7 +271,7 @@ var SwarmBot = (function () {
         if (maxCount < numToBuy)
             numToBuy = maxCount;
         this.commands.buyUnit({ unit: unitToBuy, num: numToBuy });
-        console.log("Purchasing : " + numToBuy + " - " + unitToBuy.name);
+        console.log("Purchasing : " + numToBuy + " - " + unitToBuy.name + " " + unitToBuy.suffix);
     };
     SwarmBot.prototype.buyOneUnit = function (unitToBuy) {
         this.buyUnit(unitToBuy, 1);
@@ -350,13 +351,13 @@ var SwarmBot = (function () {
         return false;
     };
     SwarmBot.prototype.spellsLogic = function () {
-        var reqEnergy = 40000;
-        if (this.game.units()['nexus'].count().toNumber() < 3) {
+        var reqEnergy = 4000;
+        if (this.game.units()['nexus'].count().toNumber() < 3 || this.game.units()['nexus'].count().toNumber() >= 5) {
             var energy = this.game.units()['energy'];
             if (this.countOfUnit(energy) > reqEnergy) {
                 var swarmWarp = energy.upgrades.byName.swarmwarp;
                 if (swarmWarp.isBuyable()) {
-                    // buyUpgrade(swarmWarp, 1);
+                    this.buyUpgrade(swarmWarp, 1);
                     return true;
                 }
                 var asdfasdf = 1;

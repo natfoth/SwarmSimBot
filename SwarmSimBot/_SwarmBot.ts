@@ -178,8 +178,8 @@
         this.unitsToParse.reverse();
     }
 
-    private setupMilitaryUnitList()
-    {
+    private setupMilitaryUnitList() {
+        this.militaryUnitsToParse = [];
         var index;
         for (index = 0; index < this.game.unitlist().length; ++index)
         {
@@ -408,7 +408,7 @@
             numToBuy = maxCount;
 
         this.commands.buyUnit({ unit: unitToBuy, num: numToBuy });
-        console.log("Purchasing : " + numToBuy + " - " + unitToBuy.name);
+        console.log("Purchasing : " + numToBuy + " - " + unitToBuy.name + " " + unitToBuy.suffix);
     }
 
     private buyOneUnit(unitToBuy: SwarmSim.IUnit)
@@ -519,14 +519,15 @@
 
     
     private spellsLogic() {
-        var reqEnergy = 40000;
+        var reqEnergy = 4000;
 
-        if (this.game.units()['nexus'].count().toNumber() < 3) {
+        if (this.game.units()['nexus'].count().toNumber() < 3 || this.game.units()['nexus'].count().toNumber() >= 5)
+        {
             var energy = this.game.units()['energy'];
             if (this.countOfUnit(energy) > reqEnergy) {
                 var swarmWarp = energy.upgrades.byName.swarmwarp;
                 if (swarmWarp.isBuyable()) {
-                    // buyUpgrade(swarmWarp, 1);
+                     this.buyUpgrade(swarmWarp, 1);
                     return true;
                 }
 
